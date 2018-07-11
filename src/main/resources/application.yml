@@ -1,0 +1,33 @@
+server:
+    port: 8761
+spring:
+    application:
+      name: eureka
+#    security:
+#      user:
+#        name: admim
+#        password: admin
+    profiles:
+        active: dev
+eureka:
+    instance:
+        hostname: localhost
+    server:
+        enable-self-preservation: false
+        eviction-interval-timer-in-ms: 5000
+    client:
+        registerWithEureka: false
+        fetchRegistry: false
+        serviceUrl:
+                defaultZone: http://localhost:8761/eureka/
+
+---
+spring:
+  profiles: dev
+logging:
+  config: classpath:logConfig/logback-dev.xml
+---
+spring:
+  profiles: prd
+logging:
+  config: classpath:logConfig/logback-prd.xml
