@@ -6,7 +6,7 @@
     <!-- 日志级别 -->
     <property name="logLevel" value="INFO"></property>
     <!-- 日志地址 -->
-    <property name="logPath" value="F:/privatecode/log/"></property>
+    <property name="logPath" value="/Users/lemonade/code/logs"></property>
     <!-- 最大保存时间 -->
     <property name="maxHistory" value="10"/>
     <!-- 异步缓冲队列的深度,该值会影响性能.默认值为256 -->
@@ -16,15 +16,15 @@
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <!-- 日志格式 -->
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-4relative [%thread] %-5level %logger{35} - %msg %n</pattern>
-        </encoder>
-    </appender>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} -%5p ${PID} --[${projectName},%X{X-B3-TraceId:-},%X{X-B3-SpanId:-},%X{X-B3-ParentSpanId:-}] [%15.15t] %-40.40logger{39} : %m%n</pattern>
+</encoder>
+</appender>
 
-    <!-- 文件保存日志的相关配置，同步 -->
-    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <!-- 保存日志文件的路径 -->
+<!-- 文件保存日志的相关配置，同步 -->
+  <!--  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        &lt;!&ndash; 保存日志文件的路径 &ndash;&gt;
         <file>${logPath}/${projectName}.log</file>
-        <!-- 日志格式 -->
+        &lt;!&ndash; 日志格式 &ndash;&gt;
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss} %-4relative [%thread] %-5level %logger{35} - %msg %n</pattern>
         </encoder>
@@ -33,18 +33,18 @@
             <onMatch>ACCEPT</onMatch>
             <onMismatch>DENY</onMismatch>
         </filter>
-        <!-- 循环政策：基于时间创建日志文件 -->
+        &lt;!&ndash; 循环政策：基于时间创建日志文件 &ndash;&gt;
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!-- 日志文件名格式 -->
-            <fileNamePattern>${logPath}/cms-%d{yyyy-MM-dd}.log</fileNamePattern>
-            <!-- 最大保存时间-->
+            &lt;!&ndash; 日志文件名格式 &ndash;&gt;
+            <fileNamePattern>${logPath}/${projectName}-%d{yyyy-MM-dd}.log</fileNamePattern>
+            &lt;!&ndash; 最大保存时间&ndash;&gt;
             <maxHistory>${maxHistory}</maxHistory>
         </rollingPolicy>
-    </appender>
+    </appender>-->
 
 
     <!--配置mybatis sql 日志-->
-    <logger name="com.boot.demo.mapper" level="DEBUG"/>
+    <logger name="com.frame.dev.web.mapper" level="DEBUG"/>
     <!-- 基于INFO处理日志：具体控制台或者文件对日志级别的处理还要看所在appender配置的filter，如果没有配置filter，则使用root配置 -->
     <root level="${logLevel}">
         <appender-ref ref="STDOUT" />

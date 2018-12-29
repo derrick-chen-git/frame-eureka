@@ -84,15 +84,15 @@
 	<!--maven nexus私服配置-->
 	<distributionManagement>
 		<repository>
-			<id>releases</id>
+			<id>frame-releases</id>
 			<name>nexus-releases</name>
-			<url>http://47.106.212.169:8081/nexus/content/repositories/releases/</url>
+			<url>http://47.106.212.169:8081/repository/frame-releases/</url>
 		</repository>
-		<snapshotRepository>
+		<!--<snapshotRepository>
 			<id>snapshots</id>
 			<name>nexus-snapshots</name>
-			<url>http://47.106.212.169:8081/nexus/content/repositories/snapshots/</url>
-		</snapshotRepository>
+			<url>http://47.106.212.169:8081/repository/test-releases/</url>
+		</snapshotRepository>-->
 	</distributionManagement>
 
 </project>

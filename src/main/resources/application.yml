@@ -21,13 +21,14 @@ eureka:
         serviceUrl:
                 defaultZone: http://localhost:8761/eureka/
 
----
-spring:
-  profiles: dev
-logging:
-  config: classpath:logConfig/logback-dev.xml
----
-spring:
-  profiles: prd
-logging:
-  config: classpath:logConfig/logback-prd.xml
+#日志配置文件
+#---
+#spring:
+#  profiles: dev
+#logging:
+#  config: classpath:logConfig/logback-dev.xml
+#---
+#spring:
+#  profiles: prd
+#logging:
+#  config: classpath:logConfig/logback-prd.xml
